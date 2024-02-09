@@ -1,0 +1,41 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2708
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww22280\viewh10360\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 // Draw a polygon in the map viewer called \'91geometry\'92\
+\
+\
+// load landsat data within a set date range\
+var image = ee.ImageCollection("LANDSAT/LC08/C02/T1")\
+  .filterDate("2016-06-01", "2016-10-01")\
+  .median()\
+  .select("B.")\
+Map.addLayer(image, \{min:0, max:30000, bands: ["B4", "B3", "B2"]\})\
+\
+// get landcover layer from modis dataset and add to map\
+var landcover = ee.Image('MODIS/051/MCD12Q1/2013_01_01')\
+    .select(['Land_Cover_Type_1'], ["landcover"])\
+Map.addLayer(landcover, \{min:0, max:17\})\
+\
+// set training points (1000) randomly between landcover types\
+var points = image.addBands(landcover).sample(geometry, 1000).randomColumn()\
+var training = points.filter(ee.Filter.lt("random", 0.5))\
+var validation = points.filter(ee.Filter.gte("random", 0.5))\
+\
+// print set sizes of both training and validation columns \
+print("Training set size", training.size())\
+print("Validation set size", validation.size())\
+\
+// apply random forest classification \
+var classifier = ee.Classifier.smileRandomForest(50).train(training, "landcover", image.bandNames())\
+var result = image.classify(classifier)\
+Map.addLayer(result, \{min:0, max:17\})\
+\
+var holdout = validation.classify(classifier)\
+var errorMatrix = holdout.errorMatrix("landcover", "classification")\
+var accuracy = errorMatrix.accuracy()\
+print('Accuracy:',accuracy)\
+}
