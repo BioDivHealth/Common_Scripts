@@ -1,4 +1,4 @@
-// Derine and download NDVI time series for point features
+// Derive and download NDVI time series for point features
 // select a point on the map viewer
 
 var s2 = ee.ImageCollection('COPERNICUS/S2_HARMONIZED');
