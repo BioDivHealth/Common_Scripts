@@ -22,7 +22,7 @@ A place to store and revise scripts / functions that are commonly used within th
 
 
 ## Models💻
-
+* [LLM model to interact with PDF data and produce chatbot app with Gradio](https://github.com/BioDivHealth/Common_Scripts/blob/main/Python_scripts/models/birdpdf_zephyr_and_gradio.py) : From Elise
 
 ## Data viz📊
 
