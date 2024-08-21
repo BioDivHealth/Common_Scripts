@@ -10,6 +10,8 @@ A place to store and revise scripts / functions that are commonly used within th
 
 ## Models💻
 * [Run PCA models using FactoMineR package](https://github.com/BioDivHealth/Common_Scripts/blob/main/R_scripts/models/pca_FactoMinR.R) : From Elise
+* [Run microclima models when you need to automatically import a DEM](https://github.com/BioDivHealth/Common_Scripts/blob/main/R_scripts/models/microclima_import_DEM.R) : From Elise
+* [Run microclima models when you have your own DEM to import](https://github.com/BioDivHealth/Common_Scripts/blob/main/R_scripts/models/microclima_load_own.R) : From Elise
 
 ## Data viz📊
 * [Make interactive maps using leaflet](https://github.com/BioDivHealth/Common_Scripts/blob/main/R_scripts/plotting/leaflet.R) : From Santi
