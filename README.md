@@ -6,6 +6,7 @@ A place to store and revise scripts / functions that are commonly used within th
 
 ## Functions🔧
 * [Extract coordinates using Google Map API](https://github.com/BioDivHealth/Common_Scripts/blob/main/R_scripts/functions/extract_coordinates.R) : From Santi
+* [Minimise travel time using spatial optimisation models](https://github.com/BioDivHealth/Common_Scripts/blob/main/R_scripts/functions/spatial_optimisation.R) : From Elise
 
 
 ## Models💻
