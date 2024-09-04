@@ -21,6 +21,7 @@ A place to store and revise scripts / functions that are commonly used within th
 
 ## Data viz📊
 * [Make interactive maps using leaflet](https://github.com/BioDivHealth/Common_Scripts/blob/main/R_scripts/plotting/leaflet.R) : From Santi
+* [Make a standard gantt chart for project management](https://github.com/BioDivHealth/Common_Scripts/blob/main/R_scripts/functions/basic_gantt_chart.R): From Elise
   
 # 🐍Python scripts🐍
 
