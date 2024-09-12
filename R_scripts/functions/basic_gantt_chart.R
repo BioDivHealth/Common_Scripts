@@ -18,7 +18,7 @@ tasks <- data.frame(
            "5.1: Research paper writing and submission", "5.2: Data stories and sci-comm",
            "6.1: Project documentation and review", "6.2: Datasets and model outputs"),
   Start_Month = c(1,   1, 2, 2.5, 4.5, 7,  8,  9,  9,  11, 2),
-  End_Month =   c(2.5, 3, 4, 4.5, 7,   9,  9,  11, 11, 12, 12),
+  End_Month =   c(2.5, 3, 4, 4.5, 7,   9,  9,  12, 12, 12, 12),
   Category = c("Data Processing", "Data Processing", 
                "Model Evaluation and Fine-Tuning", "Model Evaluation and Fine-Tuning", 
                "Model Evaluation and Fine-Tuning",
@@ -60,13 +60,14 @@ tasks$Task <- factor(tasks$Task, levels = rev(unique(tasks$Task)))
     labs(x = "Month", y = "Tasks", color = "Category") +
     scale_x_continuous(breaks = 1:12, limits = c(1, 12)) +
     scale_y_discrete(labels = function(x) str_wrap(x, width = 50)) +
-    theme_classic() +
+    theme_linedraw() +
     theme(
       axis.text.y = element_text(angle = 40, hjust = 1, margin = margin(r = 10)),  # Add margin between y-axis labels and axis
       legend.position = "bottom",
       legend.title = element_text(face = "bold"),
       legend.text = element_text(size = 10),
-      legend.box = "vertical" ) +
+      legend.box = "vertical" ,
+      ) +
     guides(colour = guide_legend(nrow = 2, byrow = TRUE)))
 
 
